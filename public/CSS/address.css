@@ -1,0 +1,127 @@
+/*地址管理部分*/
+.main_address{
+    font-size: 16px;
+    padding: 11px 0 11px 60px;
+    min-height: 500px;
+}
+.main_address section{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    color: #4a4a4a;
+}
+.address_title{
+    padding: 25px 0 10px;
+    margin: 0 30px 0 0;
+    border-bottom: 1px solid #e7e7e7;
+}
+.address_title p{
+    color: #845f3f;
+    font-size: 18px;
+    font-weight: 400;
+}
+.address_list{
+    padding-top: 15px;
+    color: #4a4a4a;
+    min-height: 500px;
+}
+.address_list_item{
+    width: 810px;
+    background: #fff;
+    float: left;
+    margin-bottom: 10px;
+    height: 140px;
+    position: relative;
+    margin-left: 0;
+    border: 1px solid #e7e7e7;
+}
+.address_list_item:hover{
+    border: 1px solid #845f3f;
+}
+.address_message{
+    margin: 20px 0 0 30px;
+}
+.address_name{
+    color: #333;
+    font-size: 21px;
+}
+.address_tel{
+    color: #333;
+    margin-top: 15px;
+    font-size: 17px;
+}
+.address_place{
+    color: #999;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.address_button{
+    right: 30px;
+    bottom: 60px;
+    position: absolute;
+}
+.address_button a{
+     font-size: 23px;
+     color: #845f3f;
+     padding: 5px;
+ }
+.address_button button{
+    font-size: 23px;
+    color: #845f3f;
+    padding: 5px;
+    border: none;
+    background: none;
+}
+.address_button button:hover{
+    color: rgba(132, 95, 63, 0.66);
+}
+.address_add:hover div{
+    color: #845f3f;
+}
+.add_icon{
+    margin-top: 24px;
+    text-align: center;
+}
+.add_icon div{
+    height: 35px;
+    margin: 0 auto;
+    cursor: default;
+    color: gainsboro;
+    font-size: 50px;
+}
+.add_text{
+    margin: 10px auto 0;
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+}
+.address_message p input{
+    width: 130px;
+    border: none;
+    border-bottom: 1px solid #845f3f;
+}
+.address_message p input:focus{
+    outline: none;
+}
+.address_place input{
+    margin-top: 10px;
+}
+.addAddress{
+    color: #4f4848;
+    line-height: 26px;
+    text-align: center;
+    border: 1px solid grey;
+    width: 100px;
+    float: right;
+    display: inline-block;
+}
+.addAddress a{
+    color: #4f4848;
+    font-size: 16px;
+}
+.addAddress:hover{
+    background: #c0a16b;
+}
+.addAddress a:hover{
+    color:white;
+}

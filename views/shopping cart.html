@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/shopping%20cart.css">
+    <link rel="stylesheet" href="../public/CSS/bootstrap.css">
+</head>
+<body>
+<!--头部开始-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i> 加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i> 手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                {{if userName}}
+                <li>
+                    <a href="/user/loginOut">退出登录</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--头部结束-->
+<!--主体开始-->
+<div class="head">
+    <div class="head1"><a href="/goods/index?page=1"><img src="../public/image/logo.png"></a></div>
+    <div class="head5">
+        {{if userName}}
+        <p style="margin: 10px 0;"><a href="/per/persenter">欢迎你，{{userName}}</a></p>
+        {{else}}
+        <a href="/user/login"><button type="submit" class="login">登 录</button></a>
+        {{/if}}
+    </div>
+</div>
+<div class="title">
+    <div class="main_top"><p><i class="fa fa-angle-left" aria-hidden="true" style="color: whitesmoke;"></i> 购物车</p></div>
+</div>
+<div class="main">
+    <form action="/order/orderList" method="post">
+        <div class="b_shopping">
+            <div class="shopping_top">
+                <table class="table table-hover">
+                    <caption>您已选购下列商品<i class="fa fa-shopping-cart" aria-hidden="true"></i></caption>
+                    <thead>
+                    <tr class="shopping_product">
+                        <th><input type="checkbox" id="inputAll" >全 选</th>
+                        <th>水 果 图</th>
+                        <th>水 果 名</th>
+                        <th>评 分</th>
+                        <th>单 价</th>
+                        <th>数 量</th>
+                        <th>金 额</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{each goodsList goods}}
+                    <tr>
+                        <td><input type="checkbox" class="check" value="{{goods.f_id}}" name="checkFruits"></td>
+                        <td><a href="#"><img src="../public/image/{{goods.f_picurl}}" width="100" height="100"></a></td>
+                        <td>{{goods.f_name}}</td>
+                        <td>{{goods.grade}}</td>
+                        <td><span class="figure">{{goods.f_price}}</span> ￥/斤</td>
+                        <td><i class="fa fa-minus minus" aria-hidden="true"></i> <input type="text" value="{{goods.goodsNum}}" class="sum"> <i class="fa fa-plus plus" aria-hidden="true"></i></td>
+                        <td><span class="subtotal">{{goods.f_price*goods.goodsNum}}元</span></td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="shopping_bottom">
+                <div class="s_bottom1">
+                    <p class="s_delete"><button type="submit" id="toDel">删除</button></p>
+                    <p class="empty"><a href="/cart/deleteAll" >清空购物车</a></p>
+                </div>
+                <div class="s_bottom2">
+                    <p class="selected">已选商品:<span id="quantity">0</span></p>
+                    <p class="total">总价：<span id="money">0元</span></p>
+                </div>
+            </div>
+            <div class="selectAddress">
+                <p>请选择收货地址:</p>
+                <select name="address">
+                    <option>- - 请选择 - -</option>
+                    {{each addressList address}}
+                    <option value="{{address.address}}">{{address.address}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="settle"><button type="submit">结算</button></div>
+        </div>
+    </form>
+</div>
+<!--主体结束-->
+<!--尾部开始-->
+<footer>
+    <div class="footer1"></div>
+    <ul>
+        <li><a href="#" target="_blank">网站首页</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">收款账号</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">版权隐私</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">使用协议</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">联系方式</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">关于我们</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站地图</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站留言</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">广告服务</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">积分换礼</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">RSS订阅</a></li>
+    </ul><br/>
+    <div class="footer2">
+        <a href="#">桂ICP备15008685号</a><a href="#">&nbsp;水果网&nbsp;</a>
+        <span>互联网违法和不良信息举报 电话：15577198112 邮箱：99628038@qq.com</span>
+    </div>
+</footer>
+<!--尾部结束-->
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script src="../public/JS/shopping%20cart.js"></script>
+<script>
+    //删除
+    $('#toDel').click(function () {
+        $('.main form').prop('action','/cart/delete');
+    });
+    //结算
+    $('.settle button').click(function () {
+        $('.main form').prop('action','/order/orderList');
+    });
+</script>
+</html>

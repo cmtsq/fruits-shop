@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>订单记录</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/shopping%20cart.css">
+    <link rel="stylesheet" href="../public/CSS/bootstrap.css">
+</head>
+<body>
+<!--主体开始-->
+<div class="title">
+    <div class="main_top"><p><i class="fa fa-angle-left" aria-hidden="true" style="color: whitesmoke;"></i> 订单记录</p></div>
+</div>
+<div class="main">
+    <div class="b_shopping">
+        <div class="shopping_top">
+            <table class="table table-hover">
+                <thead>
+                <tr class="shopping_product">
+                    <th>订单编号</th>
+                    <th>订单创建时间</th>
+                    <th>订单地址</th>
+                    <th>订单状态</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{each order orderList}}
+                <tr>
+                    <td>{{orderList.order_id}}</td>
+                    <td>{{orderList.createTime.toLocaleString()}}</td>
+                    <td>{{orderList.order_address}}</td>
+                    <td>{{orderList.order_state}}</td>
+                    <td><a href="/per/orderDetail?id={{orderList.order_id}}&address={{orderList.order_address}}" id="showOrder">查看</a></td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--主体结束-->
+</body>
+</html>

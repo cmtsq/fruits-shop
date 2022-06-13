@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="../public/CSS/login.css">
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+</head>
+<style>
+</style>
+<body>
+<!--头部开始-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i>加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i>手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--头部结束-->
+<div class="login1">
+    <div class="login2">
+        <form action="/user/log" method="post">
+        <div class="login3">
+            <h2 class="login4">会员登录</h2>
+            <ul class="login5">
+                <li><input type="text" id="username" name="userName" placeholder="会员名"/></li>
+                <li><input type="password" id="password" name="passWord" placeholder="请输入密码"/></li>
+                <li><a href="#"><input type="submit"  value="登录" class="btn-login"></a></li>
+                <li><a href="/user/register"><input type="button" value="注册" class="btn-reg"></a></li>
+            </ul>
+            <ul class="login6">
+                <li><a href="#">找回密码&nbsp;</a></li>
+                <li><a href="#">&nbsp;账号申诉</a></li>
+            </ul>
+        </div>
+    </form>
+    </div>
+</div>
+<!--尾部开始-->
+<footer>
+<div class="footer1"></div>
+    <ul>
+    <li><a href="#" target="_blank">网站首页</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">收款账号</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">版权隐私</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">使用协议</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">联系方式</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">关于我们</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">网站地图</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">网站留言</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">广告服务</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">积分换礼</a></li>
+    <li>|</li>
+    <li><a href="#" target="_blank">RSS订阅</a></li>
+    </ul><br/>
+    <div class="footer2">
+        <a href="#">桂ICP备15008685号</a><a href="#">&nbsp;水果网&nbsp;</a>
+        <span>互联网违法和不1良信息举报 电话：15577198112 邮箱：99628038@qq.com</span>
+    </div>
+</footer>
+<!--尾部结束-->
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script>
+    function check() {
+        //用户名
+        var user = $("#username").val();
+        //密码
+        var pwd = $("#password").val();
+        if (user=="") {
+            alert('用户名不能为空');
+            return false;//停止执行下面的语句
+        }
+        else if(pwd==""){
+            alert('密码不能为空');
+            return false;
+        }else {
+            alert('登录成功');
+        }
+    }
+</script>
+</html>

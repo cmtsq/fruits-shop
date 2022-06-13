@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/CSS/index.css">
+    <link rel="stylesheet" href="../public/CSS/personal_center.css">
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <script src="../public/JS/jquery.min.js"></script>
+    <script src="../public/JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../public/CSS/bootstrap.min.css">
+</head>
+<body>
+<!--头部-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i> 加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i> 手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                {{if uId}}
+                <li>
+                    <a href="/user/loginOut">退出登录</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--logo、购物车-->
+<div class="search">
+    <div class="search-top">
+        <div class="logo"><a href="/goods/index?page=1"><img src="../public/image/logo.png"></a></div>
+        <div class="shoppingCart-icon">
+            <a href="/cart/showCart"><i class="fa fa-shopping-cart" aria-hidden="true">我的购物车</i></a>
+        </div>
+    </div>
+</div>
+<!--订单部分-->
+<div class="goods_order">
+    <div class="contain">
+        <div class="inner_nav">
+            <span><a href="/per/persenter" style="color: #CCCCCC;font-size: 25px">个人中心</a></span>
+        </div>
+        <div class="order_nav">
+            <section>
+                <div class="personal">
+                    <div class="user_head"><img src="../public/image/headportrait.png" height="100%" width="100%"></div>
+                    <p class="user_name">{{user.linkName}} </p>
+                </div>
+            </section>
+            <section style="height: 510px;background: #e8e8da">
+                <div class="order_list">
+                    <ul>
+                        <li class="active">
+                            <a href="/per/order" target="mainFrame">个人订单</a>
+                        </li>
+                        <li>
+                            <a href="/per/collect" target="mainFrame">个人收藏</a>
+                        </li>
+                        <li>
+                            <a href="/per/address" target="mainFrame">收货地址</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="order_content" >
+            <iframe name="mainFrame" src="/per/order"></iframe>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script>
+    function cut() {
+        $(".order_list ul li").click(function () {
+            var index = $(this).index();
+            if(index == 1)
+            {
+                $(".order_list ul li:eq(0) .dot").hide();
+                $(".order_list ul li:eq(1) .dot").show();
+                $(".order_list ul li:eq(2) .dot").hide();
+                $(".order_list ul li:eq(1)").siblings().removeClass("active");
+                $(".order_list ul li:eq(1)").addClass("active");
+            }else if(index == 2){
+                $(".order_list ul li:eq(0) .dot").hide();
+                $(".order_list ul li:eq(1) .dot").hide();
+                $(".order_list ul li:eq(2) .dot").show();
+                $(".order_list ul li:eq(2)").siblings().removeClass("active");
+                $(".order_list ul li:eq(2)").addClass("active");
+            }else{
+                $(".order_list ul li:eq(0) .dot").show();
+                $(".order_list ul li:eq(1) .dot").hide();
+                $(".order_list ul li:eq(2) .dot").hide();
+                $(".order_list ul li:eq(0)").siblings().removeClass("active");
+                $(".order_list ul li:eq(0)").addClass("active");
+            }
+        });
+    }
+    cut()
+</script>
+</html>

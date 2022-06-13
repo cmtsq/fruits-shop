@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/admin/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../../public/admin/CSS/admin%20login.css">
+</head>
+<body>
+<div class="main">
+    <div class="login">
+        <form action="/back/adminUser" method="post">
+            <div class="title">
+                <h4>花果山水果网 </h4><span>· 后台管理系统</span>
+            </div>
+            <ul class="l_input">
+                <li><span class="user"><i class="fa fa-user" aria-hidden="true"></i></span><input type="text" id="name" name="name" placeholder="请输入用户名"/></li>
+                <li><span class="lock"><i class="fa fa-lock" aria-hidden="true"></i></span><input type="password" id="password" name="pass" placeholder="请输入密码"/></li>
+            </ul>
+            <div class="button"><button type="submit" onclick="check()">登 录</button></div>
+        </form>
+    </div>
+</div>
+</body>
+<script src="../../public/admin/JS/jquery-1.12.4.js"></script>
+<script>
+    function check() {
+        //用户名
+        var user = $("#name").val();
+        //密码
+        var pwd = $("#password").val();
+        if (user=="") {
+            alert('用户名不能为空');
+            return false;
+        }
+        else if(pwd==""){
+            alert('密码不能为空');
+            return false;
+        }else {
+
+        }
+    }
+</script>
+</html>

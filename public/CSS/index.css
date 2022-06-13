@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,Microsoft Yahei,sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.contain{
+    width: 1080px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.search{
+    height: 75px;
+    z-index: 101;
+    padding-top: 20px;
+    margin-bottom: 5px;
+    background-color: #fff;
+}
+.search-top{
+    width: 1080px;
+    margin: 0 auto;
+}
+.logo{
+    float: left;
+    width: 175px;
+    height: 58px;
+    line-height: 50px;
+    text-align: center;
+}
+.logo a img{
+    width: 100%;
+    height: 100%;
+}
+
+.searcher{
+    float: right;
+    position: relative;
+    width: 220px;
+    padding-left: 35px;
+    padding-top: 9px;
+    border-bottom: 1px solid #bcb6b6;
+}
+.shoppingCart-icon{
+    float: right;
+    margin: 0 20px;
+}
+.shoppingCart-icon a i{
+    font-size: 25px;
+    margin-top: 15px;
+}
+.searcher button{
+    border: none;
+    background: none;
+    display: inline-block;
+    float: left;
+}
+.searcher button i{
+    position: absolute;
+    left: 0;
+    top: 18px;
+    z-index: 2;
+    text-align: center;
+    outline: 0;
+    font-size: 14px;
+}
+.searcher input{
+    border: none;
+    z-index: 1;
+    width: 195px;
+    height: 32px;
+    line-height: 32px;
+    color: #333;
+    font-size: 14px;
+    outline: 0;
+    margin-left: -10px;
+}

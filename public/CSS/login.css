@@ -1,0 +1,192 @@
+*{
+    font-family: '微软雅黑';
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    margin: 0;
+    padding: 0;
+}
+header .header1 {
+    height: 32px;
+    background: #f5f5f5;
+}
+.header2 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.header2 .header3 {
+    height: 32px;
+    float: left;
+}
+.header1 .header3 li {
+    float: left;
+    height: 30px;
+    padding: 0 10px;
+}
+.header1 .header4 {
+    float: right;
+    height: 30px;
+    background: #f5f5f5;
+}
+.header1 .header4 li.welcome {
+    color: #009933;
+    height: 30px;
+    line-height: 30px;
+}
+.header1 .header4 li {
+    float: left;
+    height: 30px;
+    padding: 0 5px;
+}
+.header1 .header4 li a:hover{
+    color: green;
+}
+.header1 ul li{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.head{
+    width: 1000px;
+    /*规定当内容溢出元素框时发生的事情*/
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.head .head1{
+    float: left;
+    width: 263px;
+    height: 57px;
+}
+.head .head2{
+    float: right;
+    width: 526px;
+    height: 29px;
+    margin-top: 15px;
+}
+.login1{
+    height: 850px;
+    background-image: url("../image/cover4.jpg") ;
+
+}
+.login1 .login2{
+    /*background: url("../image/03.jpg") no-repeat 0px 0px;*/
+    width: 900px;
+    height: 100%;
+    margin: 0px 250px;
+}
+
+.login1 .login2 .login3{
+    border: 1px solid grey;
+    height: 315px;
+    width: 300px;
+    float: right;
+    background: beige;
+    margin: 300px 0;
+}
+.login1 .login4{
+    color: orange;
+    font-size: 30px;
+    margin: 10px 20px;
+    text-align: center;
+}
+.login5{
+    margin: 10px 23px;
+}
+.login5 li{
+    margin: 20px 0;
+}
+.login5 li #username,#password{
+    text-indent: 5px;
+}
+.login5 li .btn-login{
+    width: 234px;
+    height: 37px;
+    background: deepskyblue;
+    color: white;
+    border: 1px solid grey;
+}
+.login5 li .btn-reg{
+    width: 234px;
+    height: 37px;
+    background: orange;
+    color: white;
+    border: 1px solid grey;
+}
+.login5 li input{
+    width: 230px;
+    height: 31px;
+}
+.login6{
+    float: right;
+    margin: -11px 32px 0 0;
+}
+.login6 li{
+    float: left;
+}
+.login6 li a{
+    color: red;
+}
+.footer1{
+    border-bottom: 2px solid red;
+    margin: 50px 0;
+}
+footer ul{
+     width: 1000px;
+     margin: 0 auto;
+ }
+footer ul li{
+    float: left;
+    padding: 0px 6px;
+}
+.footer2{
+    /*clear: both;图像的左侧和右侧均不允许出现浮动元素：*/
+    margin: 0px 397px;
+}
+.footer2 span{
+    color: greenyellow;
+}
+/*媒体查询*/
+@media (max-width: 640px) {
+    footer{
+        display: none;
+    }
+    .head{
+        margin-left: -150px;
+    }
+    .head1{
+        display: none;
+    }
+    .head2{
+        float: none;
+        text-align: center;
+    }
+    .login3{
+        position: absolute;
+        left: 400px;
+    }
+
+}
+@media (max-width: 768px){
+    footer{
+        display: none;
+    }
+    .head2{
+        display: none;
+    }
+     .head .head1{
+         float: initial;/*从父元素继承 float 属性的值。*/
+         margin: auto;
+    }
+    .login3{
+        position: absolute;
+        left: 380px;
+    }
+}

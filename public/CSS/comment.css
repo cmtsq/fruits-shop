@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+}
+h4, .h4 {
+    font-size: 30px;
+    margin: 0 35px;
+}
+.comment{
+    padding:0 20px;
+}
+.commentReply{
+    padding:20px 35px;
+}
+.comment img{
+    width:100px;
+}
+.comments{
+    padding: 0 20px;
+}
+.publish{
+    padding:0 20px;
+}
+.publish input[type="submit"]{
+    padding: 7px 6px;
+    margin-left: 700px;
+    background: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    color: white;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/collect.css">
+    <link rel="stylesheet" href="../public/CSS/index.css">
+</head>
+<body>
+<div class="main_collect">
+    <section>
+        <div class="collect_title">
+            <p>< 收藏信息</p>
+        </div>
+    </section>
+    <section>
+        <div class="collect_content">
+           {{if !likes}}
+                <h1>暂无收藏</h1>
+           {{else}}
+           <div class="goods">
+                <ul>
+                    {{each likes like}}
+                    <li>
+                        <a href="/goods/detail?Id={{like.f_id}}" target="_top">
+                            <div class="f_img"><img src="../public/image/{{like.f_picurl}}" width="100%" height="100%"></div>
+                            <p class="f_title">{{like.f_name}}</p>
+                            <p class="f_price">￥{{like.f_price}}元/斤</p>
+                            <p class="f_describe">{{like.f_desc}}</p>
+                            <input type="hidden" value="{{like.f_id}}">
+                            <p class="delCollect">取消收藏</p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+           {{/if}}
+        </div>
+    </section>
+</div>
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script>
+    $('.delCollect').click(function () {
+        $.get("/per/delCollect",{collect_id:$(this).prev().val()},function (data) {
+            document.write(data);
+        });
+    });
+</script>
+</html>

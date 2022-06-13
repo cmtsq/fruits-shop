@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花果山水果后台管理</title>
+    <link rel="stylesheet" href="../../public/admin/CSS/bootstrap.css">
+    <link rel="stylesheet" href="../../public/admin/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../../public/admin/CSS/admin.css">
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <img src="../../public/admin/image/logo.png">
+    </div>
+    <div class="title">
+        <h1>花果山水果网后台管理系统</h1>
+    </div>
+    <div class="user-info">
+        <span id="account">管理员: {{a_user}}</span>
+        <a href="/back/adminLogin" class="logout">注销</a>
+    </div>
+</div>
+<!--主体部分-->
+<div class="main">
+    <div class="left">
+        <ul class="menu">
+            <li class="submenu"><a href="#">商品管理</a></li>
+            <li id="amer"><a href="/back/backIndex?page=1">水果信息</a></li>
+            <li><a href="">水果分类</a></li>
+            <li><a href="/back/showSelectFruits">信息查询</a></li>
+            <li class="submenu"><a href="#">订单管理</a></li>
+            <li id="order">订单列表</li>
+            <li><a href="#">退货处理</a></li>
+            <li><a href="#">销售统计</a></li>
+            <li class="submenu"><a href="#">评价管理</a></li>
+            <li id="comment"><a href="/back/comment">评价中心</a></li>
+            <li class="submenu"><a href="#">系统设置</a></li>
+            <li id="list">管理员列表</li>
+            <li><a href="/back/updateAdmin?id={{a_id}}">修改密码</a></li>
+            <li><a href="/back/adminLoginOut" id="quit">安全退出</a></li>
+        </ul>
+    </div>
+    <!--水果信息-->
+    <div class="right">
+            <div class="link-nav">
+                <ul>
+                    <li><a herf="/back/backIndex?page=1">商品管理 ></a></li>
+                    <li> 水果信息</li>
+                </ul>
+            </div>
+            <div class="form-wrap">
+                <div class="search-title">
+                    <i class="fa fa-search"></i>
+                    <span>搜 索</span>
+                </div>
+                <!-- 搜索条件的表单 -->
+                <form class="form-inline" action="" method="">
+                    <div class="input-group">
+                        <i class="fa fa-search"></i>
+                        <input class="form-control" type="text" placeholder="水果名" name="searchKey">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-steam"></i>
+                        <input class="form-control" type="text" placeholder="代理商">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-list"></i>
+                        <select class="form-control" name="">
+                            <option value="">绿色水果</option>
+                            <option value="">有机蔬菜</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-star"></i>
+                        <select class="form-control" name="" id="">
+                            <option value="">上架</option>
+                            <option value="">下架</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">搜索</button>
+                </form>
+            </div>
+            <!-- 搜索表单组 end -->
+            <div class="btn-group">
+                <a href="/back/addFruits"><button class="btn btn-primary">上架商品</button></a>
+            </div>
+            <!-- 按钮组 end -->
+            <!-- 数据列表 start -->
+            <div class="data-wrap">
+                <table class="tab">
+                    <tr>
+                        <th>序号</th>
+                        <th>图片</th>
+                        <th>水果名</th>
+                        <th>单价</th>
+                        <th>库存</th>
+                        <th>分类</th>
+                        <th>    </th>
+                        <th>操作</th>
+                    </tr>
+                    {{each goods goodsList}}
+                    <tr>
+                        <td>{{goodsList.f_id}}</td>
+                        <td><img class="goods-icon" src="../../public/admin/image/{{goodsList.f_picurl}}"></td>
+                        <td>{{goodsList.f_name}}</td>
+                        <td>&yen;{{goodsList.f_price}}</td>
+                        <td>{{goodsList.f_stock}}</td>
+                        <td>{{goodsList.f_type}}</td>
+                        <td>    </td>
+                        <td>
+                            <a href="/back/updateFruits?id={{goodsList.f_id}}"><button class="btn btn-primary btn-sm" type="button">编辑</button></a>
+                            <button class="btn btn-danger btn-sm submit" type="button">下架</button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+                <ul class="pagination" style="margin-left: 455px;">
+                    <li><a href="/back/backIndex?page=<%=page-1%>" id="pPage">&laquo;</a></li>
+                    <%for(var i=1;i<=pageCount;i++){ %>
+                    <li><a href="/back/backIndex?page={{i}}">{{i}}</a></li>
+                    <%}%>
+                    <li><a href="/back/backIndex?page=<%=page+1%>" id="nPage">&raquo;</a></li>
+                </ul>
+            </div>
+            <!-- 数据列表结束 end -->
+        </div>
+    <!--订单列表-->
+    <div class="orderList" style="display: none">
+        <div class="link-nav">
+            <ul>
+                <li><a herf="/back/backIndex?page=1">订单管理 ></a></li>
+                <li> 订单列表</li>
+            </ul>
+        </div>
+        <div class="ad_main">
+            <table class="tabs">
+                <tr>
+                    <th>订单ID</th>
+                    <th>订单用户</th>
+                    <th>订单创建时间</th>
+                    <th>订单状态</th>
+                    <th></th>
+                </tr>
+                {{each orders ordersList}}
+                    <tr>
+                        <td>{{ordersList.order_id}}</td>
+                        <td>{{ordersList.userName}}</td>
+                        <td>{{ordersList.createTime.toLocaleString()}}</td>
+                        <td>{{ordersList.order_state}}</td>
+                        <td><a href="/back/backOrderDetail?order_id={{ordersList.order_id}}&address={{ordersList.order_address}}" id="showOrder">查看</a></td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+    <!--管理员列表-->
+    <div class="staff" style="display: none">
+            <div class="link-nav">
+                <ul>
+                    <li><a herf="/back/backIndex?page=1">系统设置 ></a></li>
+                    <li> 管理员列表</li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <a href="/back/addAdmin"><button class="btn btn-primary">添加管理员</button></a>
+            </div>
+            <div class="ad_main">
+                <table class="tabs">
+                    <tr>
+                        <th>管理员ID</th>
+                        <th>用户名</th>
+                        <th>操作</th>
+                    </tr>
+                    {{each person personList}}
+                    <tr>
+                        <td>{{personList.a_id}}</td>
+                        <td>{{personList.a_user}}</td>
+                        <td>
+                            <a href="/back/updateAdmin?id={{personList.a_id}}"><button class="compile" type="button">编辑</button></a>
+                            <a href="/back/delAdmin?id={{personList.a_id}}"><button class="remove" type="button">移除</button></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+    </div>
+</div>
+</body>
+<script src="../../public/admin/JS/jquery-1.12.4.js"></script>
+<script src="../../public/admin/JS/jquery-1.11.0.js"></script>
+<script src="../../public/admin/JS/bootstrap.js"></script>
+<script>
+    //下架商品
+    $(".submit").click(function () {
+        $(this).parent().parent().remove();
+    });
+    $("#quit").click(function () {
+        if (confirm("您确定要关闭本页吗？")) {
+            window.close();
+        }
+    });
+    //点击切换
+    $("#list").click(function () {
+        $(".staff").show();
+        $(".right").hide();
+        $(".orderList").hide();
+    });
+    $("#amer").click(function () {
+        $(".right").show();
+        $(".staff").hide();
+        $(".orderList").hide();
+    });
+    $("#order").click(function () {
+        $(".orderList").show();
+        $(".right").hide();
+        $(".staff").hide();
+    });
+
+    var page = '<%=page%>';
+    var pageCount = '<%=pageCount%>';
+    if(page == 1){
+        document.getElementById('pPage').onclick = function () {
+            return false;
+        };
+    }
+    if(page == pageCount){
+        document.getElementById('nPage').onclick = function () {
+            return false;
+        };
+    }
+</script>
+</html>

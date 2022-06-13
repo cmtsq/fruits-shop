@@ -1,0 +1,701 @@
+*{
+    font-family: '微软雅黑';
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    margin: 0;
+    padding: 0;
+}
+ul{
+     list-style: none;
+ }
+a{
+    text-decoration: none;
+
+}
+/*头部*/
+header .header1 {
+    height: 32px;
+    background: #f5f5f5;
+}
+.header2 {
+    width: 1200px;
+    margin: 0 auto;
+}
+.header2 .header3 {
+    height: 32px;
+    float: left;
+}
+.header1 .header3 li {
+    float: left;
+    height: 30px;
+    padding: 0 10px;
+}
+.header1 .header3 li a:hover{
+    color: green;
+}
+.header1 .header4 {
+    float: right;
+    height: 30px;
+    background: #f5f5f5;
+}
+.header1 .header4 li.welcome {
+    color: #009933;
+    height: 30px;
+    line-height: 30px;
+}
+.header1 .header4 li {
+    float: left;
+    height: 30px;
+    padding: 0 5px;
+}
+.header1 .header4 li a:hover{
+    color: green;
+}
+.header1 ul li{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    text-decoration: none;
+}
+.head{
+    width: 1200px;
+    /*当内容溢出元素框时内容会会被修剪*/
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.head .head1{
+    float: left;
+    width: 263px;
+    height: 90px;
+}
+.head2{
+    width: 880px;
+    float: right;
+}
+.head2 .search{
+    width: 475px;
+    height: 41px;
+    float: left;
+    margin: 14px 27px;
+}
+.head2 .search form{
+    width: 382px;
+    border: 1px solid #009933;
+    line-height: 38px;
+    height: 38px;
+    position: relative;
+}
+.head2 .search form .content{
+    width: 310px;
+    height: 38px;
+    float: left;
+    border: 0;
+    text-indent: 10px;
+    line-height: 38px;
+}
+.head2 .search form .button{
+    float: right;
+    width: 71px;
+    height: 39px;
+    border: none;
+    background: #009933;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+}
+.head2 .head3{
+    float: left;
+    width: 119px;
+    height: 38px;
+    margin: 28px 0;
+}
+.head2 .head4{
+    float: left;
+    width: 64px;
+    height: 38px;
+    margin: 28px 0;
+}
+.head2 .head5{
+    width: 150px;
+    float: right;
+    margin: 17px 0px;
+}
+.head2 .head5 .login{
+    width: 96px;
+    height: 42px;
+    line-height: 42px;
+    background: green;
+    color: white;
+    border: none;
+}
+/*导航栏*/
+.nav{
+    height: 48px;
+    background:greenyellow;
+    clear: both;/*清除浮动*/
+}
+.nav .nav1{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+.nav .nav1 ul{
+    height: 48px;
+    text-align: center;
+    background: deepskyblue;
+    float: left;
+}
+.nav .nav1 ul li:nth-of-type(1){
+    background: orange;
+}
+.nav .nav1 ul li{
+    width: 190px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 18px;
+    float: left;
+}
+.nav .nav1 ul li a{
+    position: relative;
+    padding: 0 20px;
+    color: white;
+}
+.nav .nav1 ul li a:after{
+    position: absolute;
+    top: 2px;
+    right: -44px;
+    width: 1px;
+    height: 16px;
+    clear: both;
+    content: "";
+    overflow: hidden;
+    box-shadow: 2px 1px 1px #3a3333;
+}
+.nav .nav1 ul li:hover{
+    background: #c0bcbc42;
+}
+.nav1 .n_top1{
+    border: 1px solid grey;
+    display: none;
+    position: absolute;
+    width: 179px;
+    text-align: left;
+    border-top: 0px;
+    background-color: #bbf27c;
+    padding-left: 10px;
+    z-index: 999;
+}
+/*增加空白间距*/
+.nav1 .n_top1 p{
+    line-height: 31px;
+    word-spacing: 88px;
+}
+.nav1 .n_top1 span{
+    float: right;
+    margin-right: 10px;
+}
+.nav1 .n_top2{
+    border: 1px solid grey;
+    display: none;
+    position: absolute;
+    width: 179px;
+    text-align: left;
+    border-top: 0px;
+    background-color: #bbf27c;
+    padding-left: 10px;
+    z-index: 999;
+}
+.nav1 .n_top2 p{
+    line-height: 31px;
+    word-spacing: 5px;
+    font-size: 14px;
+}
+.nav1 .n_top2 span{
+    float: right;
+    margin-right: 10px;
+}
+.nav1 .n_top3{
+    border: 1px solid grey;
+    display: none;
+    position: absolute;
+    width: 179px;
+    text-align: left;
+    border-top: 0px;
+    background-color: #bbf27c;
+    padding-left: 10px;
+    overflow: hidden;
+    z-index: 999;
+}
+.nav1 .n_top3 p{
+    line-height: 31px;
+    word-spacing: 5px;
+    font-size: 14px;
+    white-space: nowrap;/*规定段落中的文本不进行换行*/
+    text-overflow: ellipsis;/*规定当文本溢出包含元素时发生的事情:显示省略符号来代表被修剪的文本。*/
+    overflow: hidden;
+}
+.nav1 .n_top3 span{
+    float: right;
+    margin-right: 10px;
+}
+.nav1 .n_top4{
+    border: 1px solid grey;
+    display: none;
+    position: absolute;
+    width: 179px;
+    text-align: left;
+    border-top: 0px;
+    background-color: #FFF;
+    padding-left: 10px;
+    overflow: hidden;
+}
+.nav1 .n_top4 p{
+      line-height: 31px;
+      word-spacing: 5px;
+      font-size: 14px;
+      white-space: nowrap;/*规定段落中的文本不进行换行*/
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
+.nav1 .n_top3 span{
+    float: right;
+    margin-right: 10px;
+}
+.nav .nav2 #time{
+    width: 225px;
+    height: 48px;
+    text-align: center;
+    float: left;
+    color: white;
+    line-height: 48px;
+    font-size: 17px;
+}
+
+/*主体部分*/
+.main .m_content{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+.main1 .main_left{
+    width: 170px;
+    height: 290px;
+    background: #efe9e9;
+    padding: 1px 10px;
+    float: left;
+}
+.main1 .main_left ul{
+    text-align: center;
+}
+.main_left ul li:hover{
+    background: #c0bcbc42;
+}
+.main_left ul #show1{
+     margin: 23px 0px;
+     width: 170px;
+     height: 48px;
+     position: relative;
+ }
+.main_left ul #show1 ul{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #dae5d9;
+    background: rgb(135 219 121);
+    left: 180px;
+    top: -24px;
+    display: none;
+}
+.main_left ul #show1 ul li{
+    float: left;
+    margin: 23px;
+    margin-top: 37px;
+}
+.main_left ul #show1 ul img{
+    width: 100px;
+    height: 100px;
+}
+.main_left ul #show2{
+    margin: 23px 0px;
+    width: 170px;
+    height: 48px;
+    position: relative;
+}
+.main_left ul #show2 ul{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #dae5d9;
+    background: rgb(135 219 121);
+    left: 180px;
+    top: -24px;
+    display: none;
+}
+.main_left ul #show2 ul li{
+    float: left;
+    margin: 23px;
+    margin-top: 37px;
+}
+.main_left ul #show2 ul img{
+    width: 100px;
+    height: 100px;
+}
+.main_left ul #show3{
+    margin: 23px 0px;
+    width: 170px;
+    height: 48px;
+    position: relative;
+}
+.main_left ul #show3 ul{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #dae5d9;
+    background: rgb(135 219 121);
+    left: 180px;
+    top: -24px;
+    display: none;
+}
+.main_left ul #show3 ul li{
+    float: left;
+    margin: 23px;
+    margin-top: 37px;
+}
+.main_left ul #show3 ul img{
+    width: 100px;
+    height: 100px;
+}
+.main_left ul #show4{
+    margin: 23px 0px;
+    width: 170px;
+    height: 48px;
+    position: relative;
+}
+.main_left ul #show4 ul{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #dae5d9;
+    background: rgb(135 219 121);
+    left: 180px;
+    top: -24px;
+    display: none;
+}
+.main_left ul #show4 ul li{
+    float: left;
+    margin: 23px;
+    margin-top: 37px;
+}
+.main_left ul #show4 ul img{
+    width: 100px;
+    height: 100px;
+}
+.downmemu{
+     z-index: 999;
+ }
+.main_auto{
+    width: 720px;
+    padding: 20px 20px 0;
+    float: left;
+}
+.main_auto .banner{
+    width: 720px;
+}
+.main_auto .banner #box{
+    position: relative;
+}
+.banner #list{
+    list-style-type: none;
+    position: absolute;
+    right: 290px;
+    bottom: 25px;
+}
+.banner #list li {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    float: left;
+    margin-left: 10px;
+}
+.banner #box img{
+    width: 720px;
+    height: 270px;
+}
+.main_right{
+    float: left;
+}
+.main_right .notice{
+    margin: 20px 0;
+    border: 1px solid #cac5c5;
+    width: 240px;
+    height: 270px;
+}
+.main_right .notice .notice1{
+    width: 240px;
+    margin: 0 auto;
+}
+.notice .notice1 li{
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    width: 120px;
+    position: relative;
+}
+.notice .notice1 li a:hover{
+    color: green;
+}
+.notice .notice1 li:after{
+    border-bottom: 2px solid green;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 99%;
+    height: 41px;
+    border-radius: 2px 2px 0 0;
+}
+.notice #express{
+    margin: 10px;
+    display: block;
+    clear: both;
+    width: 97%;
+    overflow: hidden;
+}
+#express li{
+    height: 38px;
+    line-height: 38px;
+    clear: both;
+}
+#express li a{
+    font-size: 15px;
+    display: block;
+    white-space: nowrap;/*规定段落中的文本不进行换行*/
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;/*溢出隐藏*/
+}
+.notice #expression{
+    margin: 10px;
+    display: none;
+    clear: both;
+    width: 97%;
+}
+.notice{
+    overflow: hidden;
+}
+#expression li{
+    line-height: 38px;
+    clear: both;
+}
+#expression li a{
+    font-size: 15px;
+    display: block;
+    white-space: nowrap;/*规定段落中的文本不进行换行*/
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+.main2{
+    margin-top: 20px;
+    min-height: 720px;
+    clear: both;
+}
+.main2 .m_top{
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 10px 0px 0px;
+    border-bottom: 2px solid #009933;
+}
+.main2 .m_top h2{
+    float: left;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.m_top h2 i{
+    display: inline-block;
+    height: 22px;
+}
+.m_top h2 i img{
+    vertical-align: top;/*垂直对齐*/
+    margin-top: 5px;
+    margin-right: 8px;
+}
+.main2 .m_top span{
+    display: block;
+    float: left;
+    color: rgba(122, 122, 122, 0.76);
+}
+.main2 .m_top a{
+    display: block;
+    float: right;
+    color: rgba(122, 122, 122, 0.76);
+}
+.main2 .goods{
+    padding-top: 20px;
+    overflow: hidden;
+}
+.goods ul li a:hover{
+    box-shadow: 0px 0px 15px #b3b3b3;
+    margin-top: -5px;
+    border:none;
+    color: #FFFFFF;
+}
+.goods ul li{
+    float: left;
+    height: 300px;
+    width: 224px;
+    margin: 0 16px 25px 0;
+}
+.goods ul li a{
+    float: left;
+    height: 100%;
+    width: 214px;
+    padding: 5px 5px 0px;
+    text-align: center;
+    transition: .5s;
+    box-shadow: 0px 0px 15px transparent;
+    border: 1px solid #e6e6e6
+}
+.goods li a .f_img{
+    width: 214px;
+    height: 160px;
+}
+.goods li a .f_title{
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;/*文本不会换行*/
+}
+.goods li a .f_price{
+    color: #009933;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.goods li a .f_describe{
+    color: #a1a1a1;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;/*规定段落中的文本不进行换行*/
+}
+.goods li a .f_grade{
+    line-height: 30px;
+    text-align: center;
+}
+.friendly{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+}
+.friendly .link{
+    border: 1px solid deepskyblue;
+}
+.link .l_title{
+    float: left;
+    padding: 5px 23px;
+    background: red;
+}
+.link .l_title p{
+    overflow: hidden
+}
+.link .l_text ul{
+    overflow: hidden;
+    background: deepskyblue;
+}
+.link .l_text ul li{
+    float: left;
+    padding: 5px 10px;
+    position: relative;
+}
+.link .l_text ul li:after{
+    position: absolute;
+    top: 8px;
+    right: 0;
+    display: block;
+    clear: both;
+    content: "";
+    height: 15px;
+    width: 1px;
+    background: black;
+}
+/*随滚动条滚动可关闭广告*/
+body{
+    position: relative;
+}
+.right{
+    top: 112px;
+    right: 30px;
+    position: absolute;
+    z-index: 3;
+}
+.dd_close{
+    width: 35px;
+    height: 18px;
+    text-align: center;
+    border: solid 1px #999;
+    background-color: #e0e0e075;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+#right1{
+    border: 0;
+    width: 275px;
+    height: 90px;
+
+}
+/*footer*/
+.footer1{
+    border-bottom: 2px solid green;
+    margin: 60px 0px 50px 0px;
+}
+footer ul{
+    width: 1000px;
+    margin: 0 auto;
+}
+footer ul li{
+    float: left;
+    padding: 0px 6px;
+}
+.footer2{
+    /*clear: both;图像的左侧和右侧均不允许出现浮动元素：*/
+    margin: 0px 403px;
+}
+.footer2 span{
+    color: green;
+}
+.pager{
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+}
+.pager:before{
+    display: table;
+    content: " ";
+}
+.pager li{
+    display: inline;
+}
+.pager li>a{
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+.pager li a:hover{
+    background: green;
+    color: gainsboro;
+    text-decoration: none;
+}
