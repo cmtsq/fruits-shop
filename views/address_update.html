@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/address.css">
+    <link rel="stylesheet" href="../public/CSS/index.css">
+
+</head>
+<body>
+<div class="main_address">
+    <section>
+        <div class="address_title">
+            <p style="display: inline-block">< 地址信息</p>
+            <p class="addAddress"><a href="#">添加新地址</a></p>
+        </div>
+    </section>
+    <section>
+        <div class="address_list">
+          <form action="/per/doUpdateAddrs" method="post">
+              <div class="address_list_item">
+                  <div class="address_item_content">
+                      <div class="address_message">
+                          <input type="hidden" value="{{addrs.add_id}}" name="add_id">
+                          <p class="address_name">收货人：<input type="text" value="{{addrs.uname}}" name="uname"></p>
+                          <p class="address_tel">收货电话：<input type="number" value="{{addrs.phone}}" name="phone"></p>
+                          <p class="address_place">地址信息：<input type="text" value="{{addrs.address}}" name="address"></p>
+                          <div class="address_button">
+                              <button type="submit">确定</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+        </div>
+    </section>
+</div>
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" href="../public/CSS/home page.css">
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+</head>
+<body>
+<!--随滚动条滚动可关闭广告-->
+<div class="right">
+    <div class="dd_close"><a href="javascript:$('.right').hide()">×</a></div>
+    <img src="../public/image/advertisement%20.jpg" id="right1" />
+</div>
+<!--头部开始-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i> 加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i> 手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                {{if uId}}
+                <li>
+                    <a href="/user/loginOut">退出登录</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--头部结束-->
+<div class="head">
+    <div class="head1"><a href="/goods/index?page=1"><img src="../public/image/logo.png"></a></div>
+    <div class="head2">
+        <div class="search">
+            <form action="/goods/search" method="post">
+               <input type="search" class="content" placeholder="请输入搜索的内容" name="search"/>
+               <button type="submit" class="button">搜索</button>
+            </form>
+        </div>
+        <div class="head3">
+            <div class="kehu"><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i><span> 联系客服</span></a></div>
+        </div>
+        <div class="head4">
+            {{if userName}}
+            <a href="/cart/showCart"><i class="fa fa-shopping-cart" aria-hidden="true"> 购物车</i></a>
+            {{else}}
+            <a href="/user/login"><i class="fa fa-shopping-cart" aria-hidden="true"> 购物车</i></a>
+            {{/if}}
+        </div>
+        <div class="head5">
+            {{if userName}}
+            <p style="margin: 10px 0;"><a href="/per/persenter">欢迎你，{{userName}}</a></p>
+            {{else}}
+                <a href="/user/login"><button type="submit" class="login">登 录</button></a>
+            {{/if}}
+        </div>
+</div>
+</div>
+
+
+<!--导航栏开始-->
+<div class="nav">
+    <div class="nav1">
+        <ul>
+            <li>水果分类</li>
+            <li id="menu1">
+                <a href="#">产地货源</a>
+                <div class="n_top1">
+                    <p>海南     椰子</p>
+                    <p>新疆     葡萄</p>
+                    <p>西藏     百香果</p>
+                    <p>四川     柠檬</p>
+                    <p>广东     荔枝</p>
+                    <p>云南     石榴</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu2">
+                <a href="#">水果行情</a>
+                <div class="n_top2">
+                    <p>砂糖橘     百色市      ￥1.20/斤</p>
+                    <p>桔子       眉山市      ￥3.50/斤</p>
+                    <p>草莓       南通市      ￥15.00/斤</p>
+                    <p>榴梿       国外进口    ￥70.00/斤</p>
+                    <p>苹果       陇南市      ￥2.20/斤</p>
+                    <p>橙子       桂林市      ￥1.20/斤</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu3">
+                <a href="#">行业展会</a>
+                <div class="n_top3">
+                    <p>广西西林沙糖桔走向全国 山东金乡凯盛市场推介会</p>
+                    <p>2020陕西温室灌溉展览会</p>
+                    <p>2020第十届陕西种子会</p>
+                    <p>2020第十届陕西植保信息交流暨农药械交易会</p>
+                    <p>2019第八届山东（乐陵）红枣暨健康食品博览会</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu4">
+                <a href="#">其他帮助</a>
+                <div class="n-top4" style="display: none">
+                    <p>桑葚怎么洗？桑葚不可一起吃有哪些？</p>
+                    <p>水果提前预售的必要性</p>
+                    <p>马来西亚不止有猫山王榴莲</p>
+                    <p>本地人告诉你麻阳冰糖橙都是几月份熟的？</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="nav2">
+        <p id="time"></p>
+    </div>
+</div>
+<!--导航栏结束-->
+<!--主体开始-->
+<div class="main">
+    <div class="m_content">
+        <!--水果分类、轮播、公告-->
+        <div class="main1">
+            <!--水果分类导航栏-->
+            <div class="main_left">
+                <ul>
+                    <li id="show1">
+                        春 季 水 果
+                        <ul class="downmemu">
+                            <li><img src="../public/image/fruit01.jpg"><p>草 莓</p></li>
+                            <li><img src="../public/image/fruits02.jpg"><p>菠 萝</p></li>
+                        </ul>
+                    </li>
+                    <li id="show2">
+                        夏 季 水 果
+                        <ul  class="downmemu">
+                            <li><img src="../public/image/fruit03.jpg"><p>西 瓜</p></li>
+                            <li><img src="../public/image/fruit04.jpg"><p>桃 子</p></li>
+                        </ul>
+                    </li>
+                    <li id="show3">
+                        秋 季 水 果
+                        <ul  class="downmemu">
+                            <li><img src="../public/image/fruit05.jpg"><p>枣 子</p></li>
+                            <li><img src="../public/image/fruit06.jpg"><p>柿 子</p></li>
+                        </ul>
+                    </li>
+                    <li id="show4">
+                        冬 季 水 果
+                        <ul  class="downmemu">
+                            <li><img src="../public/image/fruit07.jpg"><p>橙 子</p></li>
+                            <li><img src="../public/image/fruit08.jpg"><p>柚 子</p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--轮播-->
+            <div class="main_auto">
+                <div class="banner">
+                    <div id="box">
+                        <img src="../public/image/lunbo01.png" id="image">
+                        <ul id="list">
+                            <li index=1></li>
+                            <li index=2></li>
+                            <li index=3></li>
+                            <li index=4></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--公告-->
+            <div class="main_right">
+                <div class="notice">
+                    <ul class="notice1">
+                        <li id="li1"><a href="#">公告</a></li>
+                        <li id="li2" id=""><a href="#">卖家入门</a></li>
+                    </ul>
+                        <ul id="express">
+                            {{each notice n_message}}
+                            <li><a href="/goods/notice?n_id={{n_message.n_id}}">{{n_message.n_title}}</a></li>
+                            {{/each}}
+                        </ul>
+                        <ul id="expression">
+                            <li><a href="#">手机版发布货源教程</a></li>
+                            <li><a href="#">手机版注册会员教程</a></li>
+                            <li><a href="#">电脑端注册会员教程</a></li>
+                            <li><a href="#">电脑端发布货源信息教程</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <!--商品列表-->
+        <div class="main2">
+            <div class="m_top">
+                <h2><i><img src="../public/image/apple.png"></i>推荐产品</h2>
+                <span class="m_text">鲜美、肉甜、多种水果任你选择,包您满意!</span>
+                <a href="#">换一批</a>
+            </div>
+            <div class="goods">
+                <ul>
+                    {{each goods fruit}}
+                    <li>
+                        <a href="/goods/detail?Id={{fruit.f_id}}">
+                            <div class="f_img"><img src="../public/image/{{fruit.f_picurl}}" width="100%" height="100%"></div>
+                            <p class="f_title">{{fruit.f_name}}</p>
+                            <p class="f_price">￥{{fruit.f_price}}元/斤</p>
+                            <p class="f_describe">{{fruit.f_desc}}</p>
+                            <p class="f_grade">
+                                {{fruit.grade}}
+                            </p>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <ul class="pager">
+                <li><a href="/goods/index?page=<%=page-1%>" id="pPage">上一页</a></li>
+                第<span id="page"><%=page%></span>页，一共<span id="pageCount"><%=pageCount%></span>页
+                <li><a href="/goods/index?page=<%=page+1%>" id="nPage">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--主体结束-->
+<!--友情链接-->
+<div class="friendly">
+    <div class="link">
+        <div class="l_title"><p>友情链接:</p></div>
+        <div class="l_text">
+            <ul>
+                <li><a href="#">厦门周边游</a></li>
+                <li><a href="#">茶叶</a></li>
+                <li><a href="#">农家乐</a></li>
+                <li><a href="#">中国童装网</a></li>
+                <li><a href="#">苗木求购信息</a></li>
+                <li><a href="#">马可波罗网</a></li>
+                <li><a href="#">红酒百科</a></li>
+                <li><a href="#">中国食品网</a></li>
+                <li><a href="#">中国寿光蔬菜网</a></li>
+                <li><a href="#">干洗加盟</a></li>
+                <li><a href="#">水果网</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--尾部开始-->
+<footer>
+    <div class="footer1"></div>
+    <ul>
+        <li><a href="#" target="_blank">网站首页</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">收款账号</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">版权隐私</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">使用协议</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">联系方式</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">关于我们</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站地图</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站留言</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">广告服务</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">积分换礼</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">RSS订阅</a></li>
+    </ul><br/>
+    <div class="footer2">
+        <a href="#">桂ICP备15008685号</a><a href="#">&nbsp;水果网&nbsp;</a>
+        <span>互联网违法和不良信息举报 电话：15577198112 邮箱：99628038@qq.com</span>
+    </div>
+</footer>
+<!--尾部结束-->
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script src="../public/JS/home page.js"></script>
+<script>
+    //随滚动条滚动的可关闭广告窗口
+    //当用户滚动指定的元素时，会发生 scroll 事件
+    //方法返回或设置匹配元素的滚动条的垂直位置
+    $(window).scroll(function(){
+        var st = $(this).scrollTop()+50;
+        $(".right").css("top",st);
+    });
+    $("#right").find("a").click(function(){
+        $(".right").hide();
+    });
+
+    //轮播广告
+    function carousel() {
+        //var images = ["lunbo01.png","lunbo02.jpg","lunbo03.png","lunbo04.jpg"];
+        var images = new Array();
+        //alert('<%=lun%>')
+        '<%lun.forEach((item)=>{%>'
+            images.push('<%=item.l_picurl%>');
+        '<%})%>'
+        var index = 0;
+        $("#list li").eq(0).css("background","green");
+        setInterval(function () {
+            index++;
+            if(index == images.length){
+                index = 0;
+            }
+            $("#image").attr("src",`../public/image\\${images[index]}`);//设置或返回被选元素的值
+            $("#list li").css("background","#aaaaaa");
+            $("#list li").eq(index).css("background","green");
+        },1000);
+    }
+    carousel();
+
+    var page = '<%=page%>';
+    var pageCount = '<%=pageCount%>';
+    if(page == 1){
+        document.getElementById('pPage').onclick = function () {
+            return false;
+        };
+    }
+    if(page == pageCount){
+        document.getElementById('nPage').onclick = function () {
+            return false;
+        };
+    }
+// function homepage_onclick() {
+//     if(   confirm( "确实要注销账号？ "))
+//     {
+//         window.parent.location.href   =   "../home page.html ";
+//     }
+// }
+// }
+</script>
+</html>

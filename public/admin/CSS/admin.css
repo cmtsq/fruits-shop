@@ -1,0 +1,376 @@
+*{
+    font-family: '微软雅黑';
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-image: url("../image/cover5.png");
+}
+div{
+    box-sizing: border-box;
+}
+button{
+    cursor: pointer;/*光标呈现为一只手指*/
+}
+/* 头部样式 */
+.header{
+    width: 100%;
+    overflow: hidden;
+}
+.header>div {
+    float: left;
+}
+.title {
+    width: 60%;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+}
+.title h1{
+    font-size: 28px;
+    color: green;
+}
+.logo img{
+    margin: 9px auto;
+    height: 62px;
+    width: 300px;
+}
+.user-info {
+    margin: 31px 0;
+ }
+#account{
+    font-size: 12pt;
+    color: #ddd75b;
+}
+.exit{
+    text-decoration: none;
+    color: #a7a7a7;
+}
+.exit:hover{
+    color: #f00;
+}
+.main{
+     position: relative;
+     width: 100%;
+ }
+/* 左侧菜单 */
+.left,.right{
+    position: absolute;
+    top: 0;
+    min-height: 600px;
+}
+.left{
+    left:0;
+    width: 20%;
+}
+.left li a{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+/* 设置一级菜单样式 */
+.menu li a{
+    font-size: 16px;
+    color: #eee;
+    background: deepskyblue;
+}
+.menu .submenu a{
+    background: #55bab1;
+    color: #eee;
+    /*!important;*/
+}
+.menu .submenu a:hover{
+    background: none;
+}
+.menu>li>a:hover{
+    color: #222;
+    background: #ddd;
+    text-decoration: none;
+}
+.menu #amer{
+    font-size: 16px;
+    color: #eee;
+    background: deepskyblue;
+}
+.menu #order{
+    font-size: 16px;
+    color: #eee;
+    background: deepskyblue;
+}
+.left #amer{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.menu #list{
+    font-size: 16px;
+    color: #eee;
+    background: deepskyblue;
+}
+.left #list{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.menu #list:hover{
+    color: #222;
+    background: #ddd;
+    text-decoration: none;
+}
+.menu #amer:hover{
+    color: #222;
+    background: #ddd;
+    text-decoration: none;
+}
+.menu #order:hover{
+    color: #222;
+    background: #ddd;
+    text-decoration: none;
+}
+a{
+    text-decoration: none !important;
+}
+/* 右侧内容 */
+.right{
+    padding: 5px;
+    right: 0;
+    width: 80%;
+    background:whitesmoke;
+    display: block;
+}
+.link-nav>ul>li{
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+}
+.link-nav a{
+    display: inline-block;
+    font-size: 16px;
+}
+.form-wrap,.data-wrap{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.input-group{
+    width: 200px;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,.5);
+    background: white;
+}
+.input-group>i{
+    float: left;
+    width: 28px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+.form-control{
+    padding: 0 5px;
+    height: 28px;
+    width: 170px;
+    border: 0;
+    box-sizing: border-box;
+}
+.form-wrap>form{
+    margin-top: 10px;
+}
+.btn,.form-inline>div{
+    float: left;
+    margin: 10px;
+}
+.btn{
+    padding: 0 32px;
+    height: 30px;
+    background: red;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+    color: #eee;
+    margin-left: 10px;
+}
+.btn-danger{
+    color: #eee;
+    background: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+.btn-primary:hover{
+    background: #87ff4f;
+    border-color: deepskyblue;
+}
+.btn-danger:hover{
+    background: #c0392b;
+    border-color: #c0392b;
+}
+/* 数据列表样式 */
+.data-wrap{
+    clear: both;
+}
+.tab{
+    width: 100%;
+    border-collapse: collapse;
+}
+th{
+    color: #eee;
+    background: lawngreen;
+}
+th,td{
+    padding: 5px;
+    text-align: center;
+}
+.tab tr:hover{
+    background: rgba(0,0,0,0.3);
+}
+.goods-icon{
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.btn-sm{
+    font-size: 12px;
+    padding: 0 10px;
+}
+.tab td:nth-child(8){
+    display: flex;
+    justify-content: center;/*弹性布局内容对齐*/
+    border: 0;
+}
+#order{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.orderList{
+    padding: 5px;
+    right: 0;
+    width: 80%;
+    background: whitesmoke;
+    float: right;
+}
+/*管理员列表*/
+.staff{
+    padding: 5px;
+    right: 0;
+    width: 80%;
+    background:whitesmoke;
+    float: right;
+    display: none;
+}
+
+.ad_main{
+    clear: both;
+    padding-bottom: 40px;
+    margin-top: 25px;
+}
+#showOrder{
+    font-size: 12px;
+    padding: 0 10px;
+    height: 30px;
+    background: green;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+    color: #eee;
+    margin-left: 10px;
+    text-decoration: none;
+}
+#showOrder:hover{
+
+}
+.tabs{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid gainsboro;
+}
+.tabs tr{
+    line-height: 36px;
+}
+.tabs tr td{
+    border: 1px solid gainsboro;
+}
+.tabs tr:hover{
+    background: rgba(0,0,0,0.3);
+}
+.compile{
+    width: 50px;
+    height: 28px;
+    color: white;
+    background: #40bc40;
+    border: none;
+}
+.remove{
+    width: 50px;
+    height: 28px;
+    color: white;
+    background: red;
+    border: none;
+}
+@media (max-width: 640px) {
+    body{
+        font-size: 1em;
+    }
+    .title{
+        display: none;
+    }
+    .user-info{
+        margin: 10px;
+        float: none;
+    }
+    .btn-primary{
+        position: absolute;
+        left: 146px;
+        top: 40px;
+    }
+    .data-wrap{
+        display: none;
+    }
+    .navbar-default .navbar-nav > li > a {
+        color: #777;
+        line-height: 20px;
+}
+    .menu li{
+        width: 261%;
+    }
+    .navbar-nav > li {
+         float: none;
+    }
+}
+@media (max-width: 768px) {
+    .logo{
+        display: none;
+    }
+    .header{
+        margin-left: 132px;
+    }
+}
+.receive{
+    color: #4f4848;
+    line-height: 35px;
+    margin: 20px;
+    text-align: center;
+    border: 1px solid grey;
+    width: 110px;
+    float: right;
+}
+.receive a{
+    color: #4f4848;
+    font-size: 20px;
+}
+.receive:hover{
+    background: #c0a16b;
+}
+.receive a:hover{
+    color:white;
+}

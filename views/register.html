@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../public/CSS/register.css">
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+</head>
+
+<body>
+<!--头部开始-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i> 加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i> 手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--头部结束-->
+<div class="head">
+    <div class="head1"><a href="#"><img src="../public/image/logo.png"></a></div>
+    <div class="head2"><a href="#"><img src="../public/image/lg-text.png"></a></div>
+</div>
+<!--注册开始-->
+<div class="register1">
+    <p>用户注册</p>
+    <div class="register2"></div>
+</div>
+<div class="register3">
+    <form action="/user/reg" method="post">
+        <div class="input1">
+            <p><span>&nbsp;&nbsp;&nbsp;会员名&nbsp;:</span>&nbsp;</p>
+            <input type="text" class="username" name="userName" placeholder="设置会员名" autocomplete="off" id="uname">
+            <span id="tip" style="color: red"></span>
+        </div>
+        <div class="input2">
+            <p><span>登录密码&nbsp;:</span>&nbsp;</p>
+            <input type="password" class="password" name="passWord" placeholder="设置登录密码">
+        </div>
+        <div class="input3">
+            <p><span>确认密码&nbsp;:</span>&nbsp;</p>
+            <input type="password" class="password2" name="password" placeholder="确认登录密码">
+        </div>
+        <div class="input4">
+            <p><span>联系人姓名&nbsp;:</span>&nbsp;</p>
+            <input type="text" name="linkName" class="name" placeholder="请输入您的真实姓名" autocomplete="off">
+        </div>
+        <div class="input5">
+            <p><span>联系QQ&nbsp;:</span>&nbsp;</p>
+            <input type="text" class="qq" name="qq" placeholder="请输入联系QQ" autocomplete="off">
+        </div>
+        <div class="input6">
+            <p><span>图形验证码&nbsp;:</span>&nbsp;</p>
+            <input type="text" id="verify-code" placeholder="请输入图形验证码" autocomplete="off">
+            <div class="img-verify-code">
+            <img src="../public/image/05.jfif" id="img_code"/>
+            </div>
+        </div>
+    <div class="register4">
+       <div class="register5">
+           <input type="checkbox" name="checkbox" id="checkbox">
+           <p>创建账号的同时，我同意遵守:<a class="text1" href="#">《花果山水果交易网服务条款》</a>及<a  href="#" class="text2">《隐私声明》</a></p>
+           <div class="checks"></div>
+       </div>
+       <div class="register6">
+          <button type="submit" class="register7">注册</button>
+       </div>
+    </div>
+    <div class="register8"><img src="../public/image/erweima.png"><p>扫一扫 关注</p></div>
+        </form>
+</div>
+<!--尾部开始-->
+<footer>
+    <div class="footer1"></div>
+    <ul>
+        <li><a href="#" target="_blank">网站首页</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">收款账号</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">版权隐私</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">使用协议</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">联系方式</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">关于我们</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站地图</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站留言</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">广告服务</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">积分换礼</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">RSS订阅</a></li>
+    </ul><br/>
+    <div class="footer2">
+        <a href="#">桂ICP备15008685号</a><a href="#">&nbsp;水果网&nbsp;</a>
+        <span>互联网违法和不良信息举报 电话：15577198112 邮箱：99628038@qq.com</span>
+    </div>
+</footer>
+<!--尾部结束-->
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script>
+    $("#uname").blur(function () {
+        //blur失去焦点，通过ajax发送请求给服务器
+        /**
+         * '/user/check':请求路径
+         * {uname:$('#uname').val()}:发送给服务器的数据
+         * function(data,status):服务器响应后的回调函数
+         */
+        $.post('/user/check',{uname:$('#uname').val()},function (data,status) {
+            if(data.usersCount>0){
+                $('#tip').html("用户名已存在")
+            }else{
+                $("#tip").html("");
+            }
+        })
+    })
+</script>
+</html>

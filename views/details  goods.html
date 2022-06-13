@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/details%20goods.css">
+</head>
+<body>
+<!--头部开始-->
+<header>
+    <div class="header1">
+        <div class="header2">
+            <ul class="header3">
+                <li>
+                    <a href="#"><i class="fa fa-desktop" aria-hidden="true" style="font-size: 12px"></i> 加入桌面</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-mobile" aria-hidden="true" style="font-size: 19px"></i> 手机版</a>
+                </li>
+                <li>
+                    <a href="#">APP下载</a>
+                </li>
+            </ul>
+            <ul class="header4">
+                <li class="welcome">
+                    欢迎光临花果山水果网,祝您愉快！
+                </li>
+                {{if uId}}
+                <li>
+                    <a href="/user/loginOut">退出登录</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/user/login"><i class="fa fa-user" aria-hidden="true"></i> 会员登录</a>
+                </li>
+                <li>
+                    <a href="/user/register">注册会员</a>
+                </li>
+                {{/if}}
+                <li>
+                    <a href="/goods/index?page=1" class="home page">
+                        网站首页
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--头部结束-->
+<div class="head">
+    <div class="head1"><a href="/goods/index?page=1"><img src="../public/image/logo.png"></a></div>
+    <div class="head2">
+        <div class="search">
+            <form action="/goods/search" method="post">
+                <input type="search" class="content" placeholder="请输入搜索的内容" name="search"/>
+                <button type="submit" class="button">搜索</button>
+            </form>
+        </div>
+        <div class="head3">
+            <div class="kehu"><a href="#"><i class="fa fa-headphones" aria-hidden="true"></i><span> 联系客服</span></a></div>
+        </div>
+        <div class="head4">
+            {{if userName}}
+            <a href="/cart/showCart"><i class="fa fa-shopping-cart" aria-hidden="true"> 购物车</i></a>
+            {{else}}
+            <a href="/user/login"><i class="fa fa-shopping-cart" aria-hidden="true"> 购物车</i></a>
+            {{/if}}
+        </div>
+        <div class="head5">
+            {{if userName}}
+            <p style="margin: 10px 0;"><a href="/per/persenter">欢迎你，{{userName}}</a></p>
+            {{else}}
+            <a href="/user/login"><button type="submit" class="login">登 录</button></a>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<!--导航栏开始-->
+<div class="nav">
+    <div class="nav1">
+        <ul>
+            <li><a href="/goods/index?page=1">商品首页</a></li>
+            <li id="menu1">
+                <a href="#">产地货源</a>
+                <div class="n_top1">
+                    <p>海南     椰子</p>
+                    <p>新疆     葡萄</p>
+                    <p>西藏     百香果</p>
+                    <p>四川     柠檬</p>
+                    <p>广东     荔枝</p>
+                    <p>云南     石榴</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu2">
+                <a href="#">水果行情</a>
+                <div class="n_top2">
+                    <p>砂糖橘     百色市      ￥1.20/斤</p>
+                    <p>桔子       眉山市      ￥3.50/斤</p>
+                    <p>草莓       南通市      ￥15.00/斤</p>
+                    <p>榴梿       国外进口    ￥70.00/斤</p>
+                    <p>苹果       陇南市      ￥2.20/斤</p>
+                    <p>橙子       桂林市      ￥1.20/斤</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu3">
+                <a href="#">行业展会</a>
+                <div class="n_top3">
+                    <p>广西西林沙糖桔走向全国 山东金乡凯盛市场推介会</p>
+                    <p>2020陕西温室灌溉展览会</p>
+                    <p>2020第十届陕西种子会</p>
+                    <p>2020第十届陕西植保信息交流暨农药械交易会</p>
+                    <p>2019第八届山东（乐陵）红枣暨健康食品博览会</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+            <li id="menu4">
+                <a href="#">其他帮助</a>
+                <div class="n-top4" style="display: none">
+                    <p>桑葚怎么洗？桑葚不可一起吃有哪些？</p>
+                    <p>水果提前预售的必要性</p>
+                    <p>马来西亚不止有猫山王榴莲</p>
+                    <p>本地人告诉你麻阳冰糖橙都是几月份熟的？</p>
+                    <span>更多>></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="nav2">
+        <p id="time"></p>
+    </div>
+</div>
+<!--导航栏结束-->
+<!--主体开始-->
+<div class="main">
+    <div class="content">
+        <div class="main_auto">
+            <div class="f_goods">
+                <div class="b_fruit">
+                    <div class="big_img">
+                        <img  id="showing" src="../public/image/{{fruits.f_picurl}}">
+                    </div>
+                    <div class="small_img">
+                        <ul>
+                            {{each picture fPicurl}}
+                            <li><img src="../public/image/{{fPicurl.picurl}}"></li>
+                            {{/each}}
+                      </ul>
+                  </div>
+                </div>
+                <div class="f_info">
+                    <form action="/cart/addCart" method="post">
+                        <input type="hidden" name="f_id" value="{{fruits.f_id}}">
+                        <h3>{{fruits.f_desc}}</h3>
+                        <p>已售：{{fruits.f_sold}}箱</p>
+                        <p>发货地：{{fruits.f_origin}}</p>
+                        <p>评价：已有{{fruits.f_appraise}}条评价</p>
+                        <p>浏览次数：{{fruits.f_view}}次</p>
+                        <p>联系电话：{{fruits.f_tel}}</p>
+                        <p>数量：<i class="fa fa-minus minus" aria-hidden="true"></i> <input type="text" name="goodsNum" value="1" style="width: 50px;text-align: center"> <i class="fa fa-plus plus" aria-hidden="true"></i></p>
+                        <p >价格：<span style="color: red;font-size: 18px;">{{fruits.f_price}}</span>元/箱</p>
+                        <p><button type="submit" class="purchase">加入购物车</button></p>
+                    </form>
+                    </div>
+            </div>
+            <div class="f_detail">
+                <div class="d_title"><h3>详细信息</h3></div>
+                <div class="d_content"><P>{{fruits.f_message}}</P></div>
+            </div>
+            <!--发布评论-->
+            <h2>----- E N D -----</h2>
+            <div class="comment">
+                <hr style="border:1px dashed black;margin:10px 0 20px;">
+                {{if !comments.length}}
+                    <h1>暂无评论</h1>
+                {{else}}
+
+                    {{each comments comment}}
+                        <div class="comments">
+                            <p class="user"><span>{{comment.userName}}</span></p>
+                            <p class="remark">{{comment.c_content}}</p>
+                            <p class="createtime">{{comment.c_time}}</p>
+                        </div>
+                    {{/each}}
+                {{/if}}
+
+                <div class="publish">
+                    <form action="/goods/reply" method="post" enctype="multipart/form-data">
+                        <p>发表评论</p>
+                            <input type="hidden" value="{{fruits.f_id}}" name="f_id">
+                            <input type="hidden" value="{{uId}}" name="user_id">
+                            <textarea name="comment"></textarea><br>
+                        <input type="submit" value="发表评论">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="main_right">
+            <div class="f_store">
+                <div class="head_photo">
+                    <div class="touxiang"><img src="../public/image/headportrait.png"></div>
+                    <span style="display: block;margin-top: 10px;">向先生</span>
+                    <div class="shop"><a href="#"><img src="../public/image/fruit_logo.jpg"> 麻阳冰糖橙</a></div>
+                </div>
+                <div class="store">
+                   <form action="/goods/addLike" method="post">
+                       <button type="submit" class="enter">进入店铺</button>
+                       <input type="hidden" value="{{fruits.f_id}}" name="f_id">
+                       <button type="submit" class="collect">收藏店铺</button>
+                   </form>
+                </div>
+            </div>
+            <div class="f_other">
+                <div class="other_title">
+                    <h3>猜你喜欢</h3>
+                    <a href="#">换一批</a>
+                </div>
+                <div class="other_content">
+                    {{each enjoy fruits}}
+                    <a href="/goods/detail?Id={{fruits.f_id}}">
+                        <div class="fruit">
+                            <div class="f_image"><img src="../public/image/{{fruits.f_picurl}}" width="150" height="150"></div>
+                            <p class="other-price">￥{{fruits.f_price}}元/斤</p>
+                            <p class="other-name">{{fruits.e_linkman}}</p>
+                            <p class="other_region">{{fruits.e_local}}</p>
+                        </div>
+                    </a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--主体结束-->
+<!--尾部开始-->
+<footer>
+    <div class="footer1"></div>
+    <ul>
+        <li><a href="#" target="_blank">网站首页</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">收款账号</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">版权隐私</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">使用协议</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">联系方式</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">关于我们</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站地图</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">网站留言</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">广告服务</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">积分换礼</a></li>
+        <li>|</li>
+        <li><a href="#" target="_blank">RSS订阅</a></li>
+    </ul><br/>
+    <div class="footer2">
+        <a href="#">桂ICP备15008685号</a><a href="#">&nbsp;水果网&nbsp;</a>
+        <span>互联网违法和不良信息举报 电话：15577198112 邮箱：99628038@qq.com</span>
+    </div>
+</footer>
+<!--尾部结束-->
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+<script src="../public/JS/details%20goods.js"></script>
+<script>
+    //水果数量的增减
+    $(".plus").click(function () {
+        let n=$(this).siblings("input").val();
+        n++;
+        $(this).siblings("input").val(n);
+    });
+    $(".minus").click(function () {
+        let n=$(this).siblings("input").val();
+        n--;
+        if(n>=0) {
+            $(this).siblings("input").val(n);
+        }
+    });
+
+    // 商品数量文本框改变
+    $(".sum").change(function () {
+        let n=$(this).val();
+        //商品小计
+        //  获取单价的文本值
+        let price=$(this).parent().siblings().find(".figure").text();
+    });
+</script>
+</html>

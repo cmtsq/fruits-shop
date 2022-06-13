@@ -1,0 +1,97 @@
+const express = require('express');
+const adminCtr = require('../controller/adminCtr');
+var adminRouter = express.Router();
+
+//后台登录页
+adminRouter.get('/adminLogin',(req,res)=>{
+    res.render('admin/admin login.html');
+});
+//后台登录跳转
+adminRouter.post('/adminUser',(req,res)=>{
+    adminCtr.adminUser(req,res);
+});
+//管理员注销登录
+adminRouter.get('/adminLoginOut',(req,res)=>{
+    adminCtr.adminLoginOut(req,res);
+});
+//后台首页
+adminRouter.get('/backIndex',(req,res)=>{
+    adminCtr.showAdmin(req,res);
+});
+//订单详情页
+adminRouter.get('/backOrderDetail',(req,res)=>{
+    adminCtr.showOrderDetail(req,res);
+});
+//添加管理员页
+adminRouter.get('/addAdmin',(req,res)=>{
+    if(req.session.a_user){
+        res.render('admin/addAdmin.html',{a_user:req.session.a_user})
+    }else{
+        res.redirect('/back/adminLogin');
+    }
+});
+//提交添加管理员的请求
+adminRouter.post('/doAddAdmin',(req,res)=>{
+    adminCtr.addAdmin(req,res);
+});
+//修改管理员信息
+adminRouter.get('/updateAdmin',(req,res)=>{
+    adminCtr.showUpdateAdmin(req,res);
+});
+//提交修改管理员请求
+adminRouter.post('/doUpdateAdmins',(req,res)=>{
+    adminCtr.updateAdmin(req,res);
+});
+//删除管理员信息
+adminRouter.get('/delAdmin',(req,res)=>{
+    adminCtr.delAdmin(req,res);
+});
+//添加商品页
+adminRouter.get('/addFruits',(req,res)=>{
+    if(req.session.a_user){
+        res.render('admin/addFruits.html',{a_user:req.session.a_user});
+    }else{
+        res.redirect('/back/adminLogin');
+    }
+});
+//提交添加商品的请求
+adminRouter.post('/doAddFruits',(req,res)=>{
+    adminCtr.addGoods(req,res);
+});
+//修改商品信息
+adminRouter.get('/updateFruits',(req,res)=>{
+    adminCtr.showUpdateGoods(req,res);
+});
+//提交修改商品请求
+adminRouter.post('/doUpdateFruits',(req,res)=>{
+    adminCtr.updateGoods(req,res);
+});
+//商品信息查询显示
+adminRouter.get('/showSelectFruits',(req,res)=>{
+    if(req.session.a_user){
+        res.render('admin/selectFruits.html',{a_user:req.session.a_user});
+    }else{
+        res.redirect('/admin/adminLogin');
+    }
+});
+//模糊查询商品信息
+adminRouter.post('/doSearch',(req,res)=>{
+    adminCtr.searchGoods(req,res);
+});
+//用户留言评论
+adminRouter.get('/comment',(req,res)=>{
+    if(req.session.a_user){
+       adminCtr.comment(req,res);
+    }else{
+        res.redirect('/back/adminLogin');
+    }
+});
+//回复评论
+adminRouter.get('/reply',(req,res)=>{
+    adminCtr.reply(req,res);
+});
+//发货
+adminRouter.get('/sendGoods',(req,res)=>{
+    adminCtr.sendGoods(req,res);
+});
+module.exports = adminRouter;

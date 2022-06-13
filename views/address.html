@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/address.css">
+    <link rel="stylesheet" href="../public/CSS/index.css">
+
+</head>
+<body>
+<div class="main_address">
+    <section>
+        <div class="address_title">
+            <p style="display: inline-block">< 地址信息</p>
+            <p class="addAddress"><a href="/per/addAddress">添加新地址</a></p>
+        </div>
+    </section>
+    <section>
+        <div class="address_list">
+          {{each Addrs addr}}
+          <div class="address_list_item">
+              <div class="address_item_content">
+                  <div class="address_message">
+                      <p class="address_name">收货人：{{addr.uname}}</p>
+                      <p class="address_tel">收货电话：{{addr.phone}}</p>
+                      <p class="address_place">地址信息：{{addr.address}}</p>
+                      <div class="address_button">
+                          <a href="/per/updateAddress?addressID={{addr.add_id}}">修改地址</a>
+                          <a href="/per/delAddress?addressID={{addr.add_id}}">删除地址</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {{/each}}
+        </div>
+    </section>
+</div>
+</body>
+<script src="../public/JS/jquery-1.12.4.js"></script>
+</html>

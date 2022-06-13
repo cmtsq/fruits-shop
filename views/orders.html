@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>订单显示</title>
+    <link rel="stylesheet" href="../public/CSS/font-awesome.min.css">
+    <link rel="stylesheet" href="../public/CSS/shopping%20cart.css">
+    <link rel="stylesheet" href="../public/CSS/bootstrap.css">
+</head>
+<body>
+<!--主体开始-->
+<div class="title">
+    <div class="main_top"><p><i class="fa fa-angle-left" aria-hidden="true" style="color: whitesmoke;"></i> 订单信息</p></div>
+</div>
+<div class="main">
+    <div class="b_shopping">
+        <div class="shopping_top">
+            <table class="table table-hover">
+                <caption id="caption"><span>联系人：{{order.uname}}</span><span>联系电话：{{order.phone}}</span><span>订单地址：{{order.address}}</span></caption>
+                <thead>
+                <tr class="shopping_product">
+                    <th style="text-align: center">订单详情编号</th>
+                    <th>商品图示</th>
+                    <th>商品名</th>
+                    <th>数量</th>
+                    <th>价格</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{each orders ordersList}}
+                <tr>
+                    <td style="text-align: center">{{ordersList.f_id}}</td>
+                    <td><img src="../public/image/{{ordersList.f_picurl}}" width="100" height="100"></a></td>
+                    <td style="width: 300px">{{ordersList.f_name}}</td>
+                    <td>{{ordersList.goodsNum}}</td>
+                    <td>{{ordersList.f_price*ordersList.goodsNum}}元</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="settle">
+            <div id="state">订单状态：{{order.order_state}}</div>
+            {{if order.order_state=="待收货"}}
+            <div class="receive"><a href="/per/receiveGoods?order_id={{order.order_id}}">收货</a></div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<!--主体结束-->
+</body>
+</html>
